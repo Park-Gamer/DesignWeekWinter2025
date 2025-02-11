@@ -89,6 +89,34 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""peasent2"",
+            ""id"": ""28c7d64a-24ea-436a-8554-74ce52b2a0c7"",
+            ""actions"": [
+                {
+                    ""name"": ""Moving"",
+                    ""type"": ""Value"",
+                    ""id"": ""56d14c37-c878-46e8-86c5-2d2d0ba7aa3e"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""8ec6ab2d-397b-45b0-8406-779b3c04a0a2"",
+                    ""path"": ""<XInputController>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Moving"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -99,6 +127,9 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
         // peasent
         m_peasent = asset.FindActionMap("peasent", throwIfNotFound: true);
         m_peasent_Moving = m_peasent.FindAction("Moving", throwIfNotFound: true);
+        // peasent2
+        m_peasent2 = asset.FindActionMap("peasent2", throwIfNotFound: true);
+        m_peasent2_Moving = m_peasent2.FindAction("Moving", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -248,11 +279,61 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
         }
     }
     public PeasentActions @peasent => new PeasentActions(this);
+
+    // peasent2
+    private readonly InputActionMap m_peasent2;
+    private List<IPeasent2Actions> m_Peasent2ActionsCallbackInterfaces = new List<IPeasent2Actions>();
+    private readonly InputAction m_peasent2_Moving;
+    public struct Peasent2Actions
+    {
+        private @NewInput m_Wrapper;
+        public Peasent2Actions(@NewInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Moving => m_Wrapper.m_peasent2_Moving;
+        public InputActionMap Get() { return m_Wrapper.m_peasent2; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(Peasent2Actions set) { return set.Get(); }
+        public void AddCallbacks(IPeasent2Actions instance)
+        {
+            if (instance == null || m_Wrapper.m_Peasent2ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Peasent2ActionsCallbackInterfaces.Add(instance);
+            @Moving.started += instance.OnMoving;
+            @Moving.performed += instance.OnMoving;
+            @Moving.canceled += instance.OnMoving;
+        }
+
+        private void UnregisterCallbacks(IPeasent2Actions instance)
+        {
+            @Moving.started -= instance.OnMoving;
+            @Moving.performed -= instance.OnMoving;
+            @Moving.canceled -= instance.OnMoving;
+        }
+
+        public void RemoveCallbacks(IPeasent2Actions instance)
+        {
+            if (m_Wrapper.m_Peasent2ActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IPeasent2Actions instance)
+        {
+            foreach (var item in m_Wrapper.m_Peasent2ActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_Peasent2ActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public Peasent2Actions @peasent2 => new Peasent2Actions(this);
     public interface IWerewolfActions
     {
         void OnMovement(InputAction.CallbackContext context);
     }
     public interface IPeasentActions
+    {
+        void OnMoving(InputAction.CallbackContext context);
+    }
+    public interface IPeasent2Actions
     {
         void OnMoving(InputAction.CallbackContext context);
     }

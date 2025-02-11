@@ -67,6 +67,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "peasent2",
+            "id": "28c7d64a-24ea-436a-8554-74ce52b2a0c7",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "56d14c37-c878-46e8-86c5-2d2d0ba7aa3e",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8ec6ab2d-397b-45b0-8406-779b3c04a0a2",
+                    "path": "<DualSenseGamepadHID>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

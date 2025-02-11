@@ -13,7 +13,7 @@ public class WerewolfController : MonoBehaviour
     private Vector3 dashDirection;  // Direction in which the player will dash
     private bool canDash = true;  // Can the player dash?
     private Rigidbody rb;  // Rigidbody for the player
-    public float damageAmount = 10f;  // How much health to subtract from the collided player
+    public int damageAmount = 10;  // How much health to subtract from the collided player
 
     private Vector2 move;
     NewInput controls;
@@ -98,22 +98,27 @@ public class WerewolfController : MonoBehaviour
         // Check if the player collided with another player
         if (collision.gameObject.CompareTag("Peasent"))
         {
-            // Attempt to find the PlayerHealth component on the collided player
-            Player1Controller playerHealth = collision.gameObject.GetComponent<Player1Controller>();
-
-            // If the collided player has a PlayerHealth script attached, lower their health
-            if (playerHealth != null)
-            {
-                playerHealth.TakeDamage(damageAmount);
-            }
-            else
-            {
-                Debug.LogWarning("No PlayerHealth script found on collided player!");
-            }
+            Player1Controller p1HealthScript = collision.gameObject.GetComponent<Player1Controller>();
+            p1HealthScript.ApplyDamage(damageAmount);  
         }
+        if (collision.gameObject.CompareTag("Peasent2"))
+        {
+            Player2Controller p2HealthScript = collision.gameObject.GetComponent<Player2Controller>();
+            p2HealthScript.ApplyDamage(damageAmount);
+        }
+        //if (collision.gameObject.CompareTag("Peasent3"))
+        //{
+        //    Health healthScript = collision.gameObject.GetComponent<Health>();
+        //    healthScript.ApplyDamage(damageAmount);
+       // }
+      //  if (collision.gameObject.CompareTag("Peasent4"))
+       // {
+       //     Health healthScript = collision.gameObject.GetComponent<Health>();
+       //     healthScript.ApplyDamage(damageAmount);
+       // }
     }
 
-        void OnEnable()
+    void OnEnable()
     {
         controls.Werewolf.Enable();
     }
