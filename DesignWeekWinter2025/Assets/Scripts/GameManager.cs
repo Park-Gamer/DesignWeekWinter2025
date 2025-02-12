@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public Player1Script P1playerScript;
     public Player2Script P2playerScript;
     public Player3Script P3playerScript;
+    public Player4Script P4playerScript;
 
     void Start()
     {
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
         P1playerScript = FindAnyObjectByType<Player1Script>();
         P2playerScript = FindAnyObjectByType<Player2Script>();
         P3playerScript = FindAnyObjectByType<Player3Script>();
+        P4playerScript = FindAnyObjectByType<Player4Script>();
     }
 
     void Update()
@@ -34,9 +36,9 @@ public class GameManager : MonoBehaviour
         timerText.text = "Game Time: " + Mathf.Ceil(timer).ToString();
 
         // When the timer reaches 0, trigger the transformation
-        if (timer >= 2f && !werewolfChosen)
+        if (timer >= 10f && !werewolfChosen)
         {
-            int selectedPlayer = Random.Range(1, 4);  // Random number between 1 and 3
+            int selectedPlayer = Random.Range(1, 5);  // Random number between 1 and 4
 
             if (selectedPlayer == 1)
             {
@@ -49,6 +51,10 @@ public class GameManager : MonoBehaviour
             else if (selectedPlayer == 3) 
             {
                 P3playerScript.ToggleTransformation();
+            }
+            else if (selectedPlayer == 4)
+            {
+                P4playerScript.ToggleTransformation();
             }
             werewolfChosen = true;
         }

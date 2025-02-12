@@ -131,10 +131,10 @@ public class WerewolfController : MonoBehaviour
             Player3Controller p3HealthScript = collision.gameObject.GetComponent<Player3Controller>();
             p3HealthScript.ApplyDamage(damageAmount);
         }
-        //  if (collision.gameObject.CompareTag("Peasent4"))
-        // {
-        //     Health healthScript = collision.gameObject.GetComponent<Health>();
-        //     healthScript.ApplyDamage(damageAmount);
-        // }
+        if (collision.gameObject.CompareTag("Peasent4"))
+        {
+            Player4Controller p4HealthScript = collision.gameObject.GetComponent<Player4Controller>();
+            p4HealthScript.ApplyDamage(damageAmount);
+        }
     }
 }

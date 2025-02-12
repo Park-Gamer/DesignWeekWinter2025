@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class P2WerewolfController : MonoBehaviour
+public class P4WerewolfController : MonoBehaviour
 {
-    public float moveSpeed = 0.1f;
+    public float moveSpeed = 0.7f;
     public float dashSpeed = 10f;  // Speed at which the player dashes
-    public float dashDuration = 0.5f;  // How long the dash lasts
+    public float dashDuration = 1f;  // How long the dash lasts
     public float dashCooldown = 0.1f;
     public LayerMask collisionLayer;  // Layer that represents the walls
 
@@ -20,15 +19,15 @@ public class P2WerewolfController : MonoBehaviour
     private Vector2 move;
     private Vector2 dash;
 
-    private Player2Script playerScript;
+    private Player4Script playerScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerScript = FindAnyObjectByType<Player2Script>();
+        playerScript = FindAnyObjectByType<Player4Script>();
         rb = GetComponent<Rigidbody>();  // Get the Rigidbody component
 
-        Debug.Log("P2switched");
+        Debug.Log("P4switched");
     }
 
     void Update()
