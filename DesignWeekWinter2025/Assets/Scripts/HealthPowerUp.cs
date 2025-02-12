@@ -13,6 +13,10 @@ public class HealthPowerUp : MonoBehaviour
         {
             Pickup(other);
         }
+        else if (other.CompareTag("Peasant2"))
+        {
+            Pickup(other);
+        }
     }
 
     void Pickup(Collider player)
