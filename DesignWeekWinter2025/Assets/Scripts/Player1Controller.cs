@@ -21,6 +21,7 @@ public class Player1Controller : MonoBehaviour
     public GameObject bloodSplatter;
 
     private Player1Script playerScript;
+    AudioManager audioManager;
 
     void Awake()
     {
@@ -31,6 +32,7 @@ public class Player1Controller : MonoBehaviour
     {
         playerScript = FindAnyObjectByType<Player1Script>();
         rb = GetComponent<Rigidbody>();  // Get the Rigidbody component attached to the player
+        audioManager = FindAnyObjectByType<AudioManager>();
     }
 
     void Update()

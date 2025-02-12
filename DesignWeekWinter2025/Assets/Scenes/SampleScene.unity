@@ -2813,7 +2813,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.880131, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -14585,15 +14585,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 898737321789336262, guid: 88002245dce1a7c4baa71d6f27017bb9, type: 3}
       propertyPath: originalColor.b
-      value: 0.49411768
+      value: 0.08088207
       objectReference: {fileID: 0}
     - target: {fileID: 898737321789336262, guid: 88002245dce1a7c4baa71d6f27017bb9, type: 3}
       propertyPath: originalColor.g
-      value: 0.45098042
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 898737321789336262, guid: 88002245dce1a7c4baa71d6f27017bb9, type: 3}
       propertyPath: originalColor.r
-      value: 0.9843138
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8148823231361330503, guid: 88002245dce1a7c4baa71d6f27017bb9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14730,7 +14730,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 541177436923647748, guid: 1a5f3dde93f39d24bb10f4f0042e5204, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4491644036221518265, guid: 1a5f3dde93f39d24bb10f4f0042e5204, type: 3}
       propertyPath: m_LocalPosition.x
