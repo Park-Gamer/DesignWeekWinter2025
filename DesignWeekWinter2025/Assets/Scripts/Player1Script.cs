@@ -43,12 +43,6 @@ public class Player1Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Check if the Transform action is triggered (e.g., pressing 'T')
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            ToggleTransformation();
-        }
-
         if (!isWerewolf)
         {
             werewolf.transform.position = peasant.transform.position;
@@ -59,7 +53,7 @@ public class Player1Script : MonoBehaviour
         }
     }
 
-    void ToggleTransformation()
+    public void ToggleTransformation()
     {
         if (isWerewolf)
         {
