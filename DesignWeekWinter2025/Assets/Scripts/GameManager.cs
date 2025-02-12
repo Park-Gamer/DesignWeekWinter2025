@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour
 {
     public float gameTime = 0f;  // Timer duration in seconds
     private float timer;
+    public float maxGameTime = 100f;
     public TextMeshProUGUI timerText;
+    public TimerSlider timerSlider;
 
     private bool werewolfChosen = false;
 
@@ -22,6 +24,7 @@ public class GameManager : MonoBehaviour
     {
         // Initialize the timer
         timer = gameTime;
+        timerSlider.SetMaxTimer(maxGameTime);
 
         P1playerScript = FindAnyObjectByType<Player1Script>();
         P2playerScript = FindAnyObjectByType<Player2Script>();
@@ -33,7 +36,7 @@ public class GameManager : MonoBehaviour
     {
         // Decrease the timer each frame
         timer += Time.deltaTime;
-        timerText.text = "Game Time: " + Mathf.Ceil(timer).ToString();
+        timerSlider.SetTime(timer);
 
         // When the timer reaches 0, trigger the transformation
         if (timer >= 10f && !werewolfChosen)
