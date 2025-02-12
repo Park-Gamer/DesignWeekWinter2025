@@ -15,31 +15,28 @@ public class Player1Controller : MonoBehaviour
     public Color originalColor = new Color(1f, 0.5f, 0f);
     private Rigidbody rb;  // Rigidbody of the player
 
-    private Vector2 move;
-    NewInput playerControls;
-
     public bool isDead = false;
     public Animator anim;
     //public GameObject blood;
     public GameObject bloodSplatter;
 
+    private Player1Script playerScript;
+
     void Awake()
     {
         playerRenderer = GetComponent<Renderer>();
-
-        playerControls = new NewInput();
-
-        playerControls.peasent.Moving.performed += ctx => move = ctx.ReadValue<Vector2>();
-        playerControls.peasent.Moving.canceled += ctx => move = Vector2.zero;
     }
 
     void Start()
     {
+        playerScript = FindAnyObjectByType<Player1Script>();
         rb = GetComponent<Rigidbody>();  // Get the Rigidbody component attached to the player
     }
 
     void Update()
     {
+        Vector2 move = playerScript.GetMoveInput();
+
         if (!isDead)
         {
             // Calculate the movement direction
@@ -107,15 +104,5 @@ public class Player1Controller : MonoBehaviour
                 Instantiate(bloodSplatter, spawnPosition, spawnRotation);
             }
         }
-    }
-
-    void OnEnable()
-    {
-        playerControls.peasent.Enable();
-    }
-
-    void OnDisable()
-    {
-        playerControls.peasent.Disable();
     }
 }

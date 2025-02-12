@@ -5,6 +5,9 @@ using UnityEngine.InputSystem;
 
 public class WerewolfController : MonoBehaviour
 {
+    /// <summary>
+    /// Variables for werewolf
+    /// </summary>
     public float dashSpeed = 10f;  // Speed at which the player dashes
     public float dashDuration = 0.5f;  // How long the dash lasts
     public float dashCooldown = 0.1f;
@@ -16,23 +19,22 @@ public class WerewolfController : MonoBehaviour
     public int damageAmount = 10;  // How much health to subtract from the collided player
 
     private Vector2 move;
-    NewInput controls;
 
-    void Awake()
-    {
-        controls = new NewInput();
+    private Player1Script playerScript;
 
-        controls.Werewolf.Movement.performed += ctx => move = ctx.ReadValue<Vector2>();
-        controls.Werewolf.Movement.canceled += ctx => move = Vector2.zero;
-    }
-
+    // Start is called before the first frame update
     void Start()
     {
+        playerScript = FindAnyObjectByType<Player1Script>();
         rb = GetComponent<Rigidbody>();  // Get the Rigidbody component
+
+        Debug.Log("switched");
     }
 
     void Update()
     {
+        move = playerScript.GetMoveInput();
+
         if (canDash)
         {
             // Round input to the nearest whole number to determine movement direction
@@ -116,15 +118,5 @@ public class WerewolfController : MonoBehaviour
        //     Health healthScript = collision.gameObject.GetComponent<Health>();
        //     healthScript.ApplyDamage(damageAmount);
        // }
-    }
-
-    void OnEnable()
-    {
-        controls.Werewolf.Enable();
-    }
-
-    void OnDisable()
-    {
-        controls.Werewolf.Disable();
     }
 }
