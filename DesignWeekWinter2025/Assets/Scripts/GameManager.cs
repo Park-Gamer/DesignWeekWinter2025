@@ -39,9 +39,9 @@ public class GameManager : MonoBehaviour
         timerSlider.SetTime(timer);
 
         // When the timer reaches 0, trigger the transformation
-        if (timer >= 10f && !werewolfChosen)
+        if (timer >= 2f && !werewolfChosen)
         {
-            int selectedPlayer = Random.Range(1, 5);  // Random number between 1 and 4
+            int selectedPlayer = 3;//Random.Range(1, 5);  // Random number between 1 and 4
 
             if (selectedPlayer == 1)
             {
