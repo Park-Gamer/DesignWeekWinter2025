@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player2Controller : MonoBehaviour
+public class Player3Controller : MonoBehaviour
 {
-    public float moveSpeed = 5f;  // Movement speed of the player
+    public float moveSpeed = 1f;  // Movement speed of the player
     public int health = 100;
     public float invincibilityDuration = 5f; // Duration of invincibility in seconds
     private bool isInvincible = false; // If the player is invincible
@@ -20,7 +20,7 @@ public class Player2Controller : MonoBehaviour
     //public GameObject blood;
     public GameObject bloodSplatter;
 
-    private Player2Script playerScript;
+    private Player3Script playerScript;
 
     void Awake()
     {
@@ -29,7 +29,7 @@ public class Player2Controller : MonoBehaviour
 
     void Start()
     {
-        playerScript = FindAnyObjectByType<Player2Script>();
+        playerScript = FindAnyObjectByType<Player3Script>();
         rb = GetComponent<Rigidbody>();  // Get the Rigidbody component attached to the player
     }
 
@@ -61,7 +61,8 @@ public class Player2Controller : MonoBehaviour
 
     void MovePlayer(Vector3 direction)
     {
-        rb.velocity = direction * moveSpeed;  
+        // Apply the movement to the Rigidbody
+        rb.velocity = direction * moveSpeed;  // Move the player based on the input direction and speed
     }
 
     public void Die()
@@ -80,7 +81,8 @@ public class Player2Controller : MonoBehaviour
                 return;
             }
             health -= damage;
-
+            //Instantiate(blood, transform.position, Quaternion.identity);
+            // If health drops to zero or below, call the death function
             if (health <= 0)
             {
                 Die();
@@ -90,9 +92,11 @@ public class Player2Controller : MonoBehaviour
 
             playerRenderer.material.color = Color.red;
 
+            // Raycast to the ground to find the floor's normal
             RaycastHit hit;
             if (Physics.Raycast(transform.position, Vector3.down, out hit))
             {
+                // Instantiate blood splatter at the floor's hit point
                 Vector3 spawnPosition = hit.point;
 
                 Quaternion spawnRotation = Quaternion.Euler(90f, 0f, 0f);

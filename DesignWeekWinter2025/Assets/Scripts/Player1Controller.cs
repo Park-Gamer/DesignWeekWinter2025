@@ -90,7 +90,6 @@ public class Player1Controller : MonoBehaviour
             isInvincible = true;
             invincibilityTimer = invincibilityDuration;
 
-            // Visual effect: Change player color to red during invincibility (optional)
             playerRenderer.material.color = Color.red;
         
             // Raycast to the ground to find the floor's normal

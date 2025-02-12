@@ -72,6 +72,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Dashing",
+                    "type": "Value",
+                    "id": "a2ca8ad9-98a8-457b-9c1e-1505ab178a93",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -83,6 +92,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Moving",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2156b62d-2b87-496d-9ccc-10cd74a4f119",
+                    "path": "<DualSenseGamepadHID>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dashing",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fc9c8918-f635-431c-8578-d42d6d019c62",
+                    "path": "<DualSenseGamepadHID>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dashing",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -111,6 +142,113 @@
                     "processors": "",
                     "groups": "",
                     "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "peasent3",
+            "id": "4bb50a64-d55c-4a24-a408-a0d15747c206",
+            "actions": [
+                {
+                    "name": "Moving",
+                    "type": "Value",
+                    "id": "fb8efcae-b51f-461e-8448-f523d320aa53",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Dashing",
+                    "type": "Value",
+                    "id": "c04e077f-59f2-499d-bcf7-f0f49df27908",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1d87d7ba-1d47-49fb-a35e-b5529c0ca18c",
+                    "path": "<XInputController>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Moving",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "56d5bbaf-b0fa-4e3a-b110-27cefbbc0523",
+                    "path": "<XInputController>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dashing",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0bbf2873-ff7e-4eb3-a09f-059353c72c93",
+                    "path": "<XInputController>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dashing",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "peasent4",
+            "id": "f046e1dd-6eb3-46c8-9b88-93429f5b578e",
+            "actions": [
+                {
+                    "name": "Moving",
+                    "type": "Value",
+                    "id": "6635ed92-37dd-42e4-a734-cfb7172291a7",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Dashing",
+                    "type": "Value",
+                    "id": "c8b42804-d849-48f3-9b18-a5ee935f85fd",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4d592ee9-7955-4426-abbf-3fdff6ac7777",
+                    "path": "<AndroidGamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Moving",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9dfed573-6754-46dc-bf42-c6d69eafabe6",
+                    "path": "<AndroidGamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dashing",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

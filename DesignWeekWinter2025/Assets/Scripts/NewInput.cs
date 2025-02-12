@@ -94,6 +94,15 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Dashing"",
+                    ""type"": ""Value"",
+                    ""id"": ""a2ca8ad9-98a8-457b-9c1e-1505ab178a93"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -105,6 +114,28 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Moving"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2156b62d-2b87-496d-9ccc-10cd74a4f119"",
+                    ""path"": ""<DualSenseGamepadHID>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dashing"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fc9c8918-f635-431c-8578-d42d6d019c62"",
+                    ""path"": ""<DualSenseGamepadHID>/dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dashing"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -137,6 +168,113 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""peasent3"",
+            ""id"": ""4bb50a64-d55c-4a24-a408-a0d15747c206"",
+            ""actions"": [
+                {
+                    ""name"": ""Moving"",
+                    ""type"": ""Value"",
+                    ""id"": ""fb8efcae-b51f-461e-8448-f523d320aa53"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Dashing"",
+                    ""type"": ""Value"",
+                    ""id"": ""c04e077f-59f2-499d-bcf7-f0f49df27908"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""1d87d7ba-1d47-49fb-a35e-b5529c0ca18c"",
+                    ""path"": ""<XInputController>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Moving"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""56d5bbaf-b0fa-4e3a-b110-27cefbbc0523"",
+                    ""path"": ""<XInputController>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dashing"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0bbf2873-ff7e-4eb3-a09f-059353c72c93"",
+                    ""path"": ""<XInputController>/dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dashing"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""peasent4"",
+            ""id"": ""f046e1dd-6eb3-46c8-9b88-93429f5b578e"",
+            ""actions"": [
+                {
+                    ""name"": ""Moving"",
+                    ""type"": ""Value"",
+                    ""id"": ""6635ed92-37dd-42e4-a734-cfb7172291a7"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Dashing"",
+                    ""type"": ""Value"",
+                    ""id"": ""c8b42804-d849-48f3-9b18-a5ee935f85fd"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""4d592ee9-7955-4426-abbf-3fdff6ac7777"",
+                    ""path"": ""<AndroidGamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Moving"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9dfed573-6754-46dc-bf42-c6d69eafabe6"",
+                    ""path"": ""<AndroidGamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dashing"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -148,9 +286,18 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
         // peasent2
         m_peasent2 = asset.FindActionMap("peasent2", throwIfNotFound: true);
         m_peasent2_Moving = m_peasent2.FindAction("Moving", throwIfNotFound: true);
+        m_peasent2_Dashing = m_peasent2.FindAction("Dashing", throwIfNotFound: true);
         // Werewolf
         m_Werewolf = asset.FindActionMap("Werewolf", throwIfNotFound: true);
         m_Werewolf_Newaction = m_Werewolf.FindAction("New action", throwIfNotFound: true);
+        // peasent3
+        m_peasent3 = asset.FindActionMap("peasent3", throwIfNotFound: true);
+        m_peasent3_Moving = m_peasent3.FindAction("Moving", throwIfNotFound: true);
+        m_peasent3_Dashing = m_peasent3.FindAction("Dashing", throwIfNotFound: true);
+        // peasent4
+        m_peasent4 = asset.FindActionMap("peasent4", throwIfNotFound: true);
+        m_peasent4_Moving = m_peasent4.FindAction("Moving", throwIfNotFound: true);
+        m_peasent4_Dashing = m_peasent4.FindAction("Dashing", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -267,11 +414,13 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_peasent2;
     private List<IPeasent2Actions> m_Peasent2ActionsCallbackInterfaces = new List<IPeasent2Actions>();
     private readonly InputAction m_peasent2_Moving;
+    private readonly InputAction m_peasent2_Dashing;
     public struct Peasent2Actions
     {
         private @NewInput m_Wrapper;
         public Peasent2Actions(@NewInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Moving => m_Wrapper.m_peasent2_Moving;
+        public InputAction @Dashing => m_Wrapper.m_peasent2_Dashing;
         public InputActionMap Get() { return m_Wrapper.m_peasent2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -284,6 +433,9 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
             @Moving.started += instance.OnMoving;
             @Moving.performed += instance.OnMoving;
             @Moving.canceled += instance.OnMoving;
+            @Dashing.started += instance.OnDashing;
+            @Dashing.performed += instance.OnDashing;
+            @Dashing.canceled += instance.OnDashing;
         }
 
         private void UnregisterCallbacks(IPeasent2Actions instance)
@@ -291,6 +443,9 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
             @Moving.started -= instance.OnMoving;
             @Moving.performed -= instance.OnMoving;
             @Moving.canceled -= instance.OnMoving;
+            @Dashing.started -= instance.OnDashing;
+            @Dashing.performed -= instance.OnDashing;
+            @Dashing.canceled -= instance.OnDashing;
         }
 
         public void RemoveCallbacks(IPeasent2Actions instance)
@@ -354,6 +509,114 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
         }
     }
     public WerewolfActions @Werewolf => new WerewolfActions(this);
+
+    // peasent3
+    private readonly InputActionMap m_peasent3;
+    private List<IPeasent3Actions> m_Peasent3ActionsCallbackInterfaces = new List<IPeasent3Actions>();
+    private readonly InputAction m_peasent3_Moving;
+    private readonly InputAction m_peasent3_Dashing;
+    public struct Peasent3Actions
+    {
+        private @NewInput m_Wrapper;
+        public Peasent3Actions(@NewInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Moving => m_Wrapper.m_peasent3_Moving;
+        public InputAction @Dashing => m_Wrapper.m_peasent3_Dashing;
+        public InputActionMap Get() { return m_Wrapper.m_peasent3; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(Peasent3Actions set) { return set.Get(); }
+        public void AddCallbacks(IPeasent3Actions instance)
+        {
+            if (instance == null || m_Wrapper.m_Peasent3ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Peasent3ActionsCallbackInterfaces.Add(instance);
+            @Moving.started += instance.OnMoving;
+            @Moving.performed += instance.OnMoving;
+            @Moving.canceled += instance.OnMoving;
+            @Dashing.started += instance.OnDashing;
+            @Dashing.performed += instance.OnDashing;
+            @Dashing.canceled += instance.OnDashing;
+        }
+
+        private void UnregisterCallbacks(IPeasent3Actions instance)
+        {
+            @Moving.started -= instance.OnMoving;
+            @Moving.performed -= instance.OnMoving;
+            @Moving.canceled -= instance.OnMoving;
+            @Dashing.started -= instance.OnDashing;
+            @Dashing.performed -= instance.OnDashing;
+            @Dashing.canceled -= instance.OnDashing;
+        }
+
+        public void RemoveCallbacks(IPeasent3Actions instance)
+        {
+            if (m_Wrapper.m_Peasent3ActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IPeasent3Actions instance)
+        {
+            foreach (var item in m_Wrapper.m_Peasent3ActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_Peasent3ActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public Peasent3Actions @peasent3 => new Peasent3Actions(this);
+
+    // peasent4
+    private readonly InputActionMap m_peasent4;
+    private List<IPeasent4Actions> m_Peasent4ActionsCallbackInterfaces = new List<IPeasent4Actions>();
+    private readonly InputAction m_peasent4_Moving;
+    private readonly InputAction m_peasent4_Dashing;
+    public struct Peasent4Actions
+    {
+        private @NewInput m_Wrapper;
+        public Peasent4Actions(@NewInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Moving => m_Wrapper.m_peasent4_Moving;
+        public InputAction @Dashing => m_Wrapper.m_peasent4_Dashing;
+        public InputActionMap Get() { return m_Wrapper.m_peasent4; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(Peasent4Actions set) { return set.Get(); }
+        public void AddCallbacks(IPeasent4Actions instance)
+        {
+            if (instance == null || m_Wrapper.m_Peasent4ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Peasent4ActionsCallbackInterfaces.Add(instance);
+            @Moving.started += instance.OnMoving;
+            @Moving.performed += instance.OnMoving;
+            @Moving.canceled += instance.OnMoving;
+            @Dashing.started += instance.OnDashing;
+            @Dashing.performed += instance.OnDashing;
+            @Dashing.canceled += instance.OnDashing;
+        }
+
+        private void UnregisterCallbacks(IPeasent4Actions instance)
+        {
+            @Moving.started -= instance.OnMoving;
+            @Moving.performed -= instance.OnMoving;
+            @Moving.canceled -= instance.OnMoving;
+            @Dashing.started -= instance.OnDashing;
+            @Dashing.performed -= instance.OnDashing;
+            @Dashing.canceled -= instance.OnDashing;
+        }
+
+        public void RemoveCallbacks(IPeasent4Actions instance)
+        {
+            if (m_Wrapper.m_Peasent4ActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IPeasent4Actions instance)
+        {
+            foreach (var item in m_Wrapper.m_Peasent4ActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_Peasent4ActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public Peasent4Actions @peasent4 => new Peasent4Actions(this);
     public interface IPeasentActions
     {
         void OnMoving(InputAction.CallbackContext context);
@@ -362,9 +625,20 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
     public interface IPeasent2Actions
     {
         void OnMoving(InputAction.CallbackContext context);
+        void OnDashing(InputAction.CallbackContext context);
     }
     public interface IWerewolfActions
     {
         void OnNewaction(InputAction.CallbackContext context);
+    }
+    public interface IPeasent3Actions
+    {
+        void OnMoving(InputAction.CallbackContext context);
+        void OnDashing(InputAction.CallbackContext context);
+    }
+    public interface IPeasent4Actions
+    {
+        void OnMoving(InputAction.CallbackContext context);
+        void OnDashing(InputAction.CallbackContext context);
     }
 }

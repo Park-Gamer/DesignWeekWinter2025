@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class WerewolfController : MonoBehaviour
+public class P3WerewolfController : MonoBehaviour
 {
-    public float moveSpeed = 0.1f;
+    public float moveSpeed = 0.7f;
     public float dashSpeed = 10f;  // Speed at which the player dashes
-    public float dashDuration = 0.5f;  // How long the dash lasts
+    public float dashDuration = 1f;  // How long the dash lasts
     public float dashCooldown = 0.1f;
     public LayerMask collisionLayer;  // Layer that represents the walls
 
@@ -20,15 +20,15 @@ public class WerewolfController : MonoBehaviour
     private Vector2 move;
     private Vector2 dash;
 
-    private Player1Script playerScript;
+    private Player3Script playerScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerScript = FindAnyObjectByType<Player1Script>();
+        playerScript = FindAnyObjectByType<Player3Script>();
         rb = GetComponent<Rigidbody>();  // Get the Rigidbody component
 
-        Debug.Log("switched");
+        Debug.Log("P3switched");
     }
 
     void Update()
@@ -65,7 +65,7 @@ public class WerewolfController : MonoBehaviour
                 StartCoroutine(Dash());
             }
         }
-        
+
         if (!isDashing)
         {
             // Calculate the movement direction
@@ -119,7 +119,7 @@ public class WerewolfController : MonoBehaviour
         if (collision.gameObject.CompareTag("Peasent"))
         {
             Player1Controller p1HealthScript = collision.gameObject.GetComponent<Player1Controller>();
-            p1HealthScript.ApplyDamage(damageAmount);  
+            p1HealthScript.ApplyDamage(damageAmount);
         }
         if (collision.gameObject.CompareTag("Peasent2"))
         {
