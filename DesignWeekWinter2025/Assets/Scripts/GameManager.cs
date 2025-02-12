@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public float gameTime = 0f;  // Timer duration in seconds
     private float timer;
+    public TextMeshProUGUI timerText;
 
     private bool werewolfChosen = false;
 
@@ -24,6 +27,7 @@ public class GameManager : MonoBehaviour
     {
         // Decrease the timer each frame
         timer += Time.deltaTime;
+        timerText.text = "Game Time: " + Mathf.Ceil(timer).ToString();
 
         // When the timer reaches 0, trigger the transformation
         if (timer >= 10f && !werewolfChosen)

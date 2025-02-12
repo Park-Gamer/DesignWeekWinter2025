@@ -24,45 +24,6 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
     ""name"": ""NewInput"",
     ""maps"": [
         {
-            ""name"": ""Werewolf"",
-            ""id"": ""71d00cc7-5161-41a6-a44b-e4dde718a49e"",
-            ""actions"": [
-                {
-                    ""name"": ""Movement"",
-                    ""type"": ""Value"",
-                    ""id"": ""5a0bcf17-d15e-4b69-9d71-210ed5be78e5"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""5be4dbc7-7e44-450a-ada9-45de112a9c7b"",
-                    ""path"": ""<DualSenseGamepadHID>/leftStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""26867e77-1567-4a9e-a434-8cf638db9b13"",
-                    ""path"": ""<DualSenseGamepadHID>/dpad"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
             ""name"": ""peasent"",
             ""id"": ""19f0abb6-115c-4344-a826-5b0f9d476e4b"",
             ""actions"": [
@@ -70,6 +31,15 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
                     ""name"": ""Moving"",
                     ""type"": ""Value"",
                     ""id"": ""7616f851-8058-4f4a-9153-8ac83dd451f7"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Dashing"",
+                    ""type"": ""Value"",
+                    ""id"": ""e56b7c1f-5218-4e11-858c-fb58fc38ec71"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -85,6 +55,28 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Moving"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""743c5984-7340-4b66-8556-ce9cb1a6c758"",
+                    ""path"": ""<SwitchProControllerHID>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dashing"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""906af138-fe7b-4bfa-8be7-e7f4e3b724a1"",
+                    ""path"": ""<SwitchProControllerHID>/dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dashing"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -108,7 +100,7 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8ec6ab2d-397b-45b0-8406-779b3c04a0a2"",
-                    ""path"": ""<XInputController>/leftStick"",
+                    ""path"": ""<DualSenseGamepadHID>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -117,19 +109,48 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Werewolf"",
+            ""id"": ""716815c8-3d6c-4c54-a338-19ff9f4a29d1"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""33e5d134-aab0-44aa-a810-667dff45e8e9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""b6fd68e6-9055-4a05-9ead-c7015389f1d0"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
 }");
-        // Werewolf
-        m_Werewolf = asset.FindActionMap("Werewolf", throwIfNotFound: true);
-        m_Werewolf_Movement = m_Werewolf.FindAction("Movement", throwIfNotFound: true);
         // peasent
         m_peasent = asset.FindActionMap("peasent", throwIfNotFound: true);
         m_peasent_Moving = m_peasent.FindAction("Moving", throwIfNotFound: true);
+        m_peasent_Dashing = m_peasent.FindAction("Dashing", throwIfNotFound: true);
         // peasent2
         m_peasent2 = asset.FindActionMap("peasent2", throwIfNotFound: true);
         m_peasent2_Moving = m_peasent2.FindAction("Moving", throwIfNotFound: true);
+        // Werewolf
+        m_Werewolf = asset.FindActionMap("Werewolf", throwIfNotFound: true);
+        m_Werewolf_Newaction = m_Werewolf.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -188,61 +209,17 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Werewolf
-    private readonly InputActionMap m_Werewolf;
-    private List<IWerewolfActions> m_WerewolfActionsCallbackInterfaces = new List<IWerewolfActions>();
-    private readonly InputAction m_Werewolf_Movement;
-    public struct WerewolfActions
-    {
-        private @NewInput m_Wrapper;
-        public WerewolfActions(@NewInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_Werewolf_Movement;
-        public InputActionMap Get() { return m_Wrapper.m_Werewolf; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(WerewolfActions set) { return set.Get(); }
-        public void AddCallbacks(IWerewolfActions instance)
-        {
-            if (instance == null || m_Wrapper.m_WerewolfActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_WerewolfActionsCallbackInterfaces.Add(instance);
-            @Movement.started += instance.OnMovement;
-            @Movement.performed += instance.OnMovement;
-            @Movement.canceled += instance.OnMovement;
-        }
-
-        private void UnregisterCallbacks(IWerewolfActions instance)
-        {
-            @Movement.started -= instance.OnMovement;
-            @Movement.performed -= instance.OnMovement;
-            @Movement.canceled -= instance.OnMovement;
-        }
-
-        public void RemoveCallbacks(IWerewolfActions instance)
-        {
-            if (m_Wrapper.m_WerewolfActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IWerewolfActions instance)
-        {
-            foreach (var item in m_Wrapper.m_WerewolfActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_WerewolfActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public WerewolfActions @Werewolf => new WerewolfActions(this);
-
     // peasent
     private readonly InputActionMap m_peasent;
     private List<IPeasentActions> m_PeasentActionsCallbackInterfaces = new List<IPeasentActions>();
     private readonly InputAction m_peasent_Moving;
+    private readonly InputAction m_peasent_Dashing;
     public struct PeasentActions
     {
         private @NewInput m_Wrapper;
         public PeasentActions(@NewInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Moving => m_Wrapper.m_peasent_Moving;
+        public InputAction @Dashing => m_Wrapper.m_peasent_Dashing;
         public InputActionMap Get() { return m_Wrapper.m_peasent; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -255,6 +232,9 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
             @Moving.started += instance.OnMoving;
             @Moving.performed += instance.OnMoving;
             @Moving.canceled += instance.OnMoving;
+            @Dashing.started += instance.OnDashing;
+            @Dashing.performed += instance.OnDashing;
+            @Dashing.canceled += instance.OnDashing;
         }
 
         private void UnregisterCallbacks(IPeasentActions instance)
@@ -262,6 +242,9 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
             @Moving.started -= instance.OnMoving;
             @Moving.performed -= instance.OnMoving;
             @Moving.canceled -= instance.OnMoving;
+            @Dashing.started -= instance.OnDashing;
+            @Dashing.performed -= instance.OnDashing;
+            @Dashing.canceled -= instance.OnDashing;
         }
 
         public void RemoveCallbacks(IPeasentActions instance)
@@ -325,16 +308,63 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
         }
     }
     public Peasent2Actions @peasent2 => new Peasent2Actions(this);
-    public interface IWerewolfActions
+
+    // Werewolf
+    private readonly InputActionMap m_Werewolf;
+    private List<IWerewolfActions> m_WerewolfActionsCallbackInterfaces = new List<IWerewolfActions>();
+    private readonly InputAction m_Werewolf_Newaction;
+    public struct WerewolfActions
     {
-        void OnMovement(InputAction.CallbackContext context);
+        private @NewInput m_Wrapper;
+        public WerewolfActions(@NewInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_Werewolf_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_Werewolf; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(WerewolfActions set) { return set.Get(); }
+        public void AddCallbacks(IWerewolfActions instance)
+        {
+            if (instance == null || m_Wrapper.m_WerewolfActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_WerewolfActionsCallbackInterfaces.Add(instance);
+            @Newaction.started += instance.OnNewaction;
+            @Newaction.performed += instance.OnNewaction;
+            @Newaction.canceled += instance.OnNewaction;
+        }
+
+        private void UnregisterCallbacks(IWerewolfActions instance)
+        {
+            @Newaction.started -= instance.OnNewaction;
+            @Newaction.performed -= instance.OnNewaction;
+            @Newaction.canceled -= instance.OnNewaction;
+        }
+
+        public void RemoveCallbacks(IWerewolfActions instance)
+        {
+            if (m_Wrapper.m_WerewolfActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IWerewolfActions instance)
+        {
+            foreach (var item in m_Wrapper.m_WerewolfActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_WerewolfActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
     }
+    public WerewolfActions @Werewolf => new WerewolfActions(this);
     public interface IPeasentActions
     {
         void OnMoving(InputAction.CallbackContext context);
+        void OnDashing(InputAction.CallbackContext context);
     }
     public interface IPeasent2Actions
     {
         void OnMoving(InputAction.CallbackContext context);
+    }
+    public interface IWerewolfActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
     }
 }

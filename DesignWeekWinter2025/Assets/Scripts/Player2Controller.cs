@@ -110,11 +110,11 @@ public class Player2Controller : MonoBehaviour
 
     void OnEnable()
     {
-        playerControls.peasent.Enable();
+        playerControls.peasent2.Enable();
     }
 
     void OnDisable()
     {
-        playerControls.peasent.Disable();
+        playerControls.peasent2.Disable();
     }
 }

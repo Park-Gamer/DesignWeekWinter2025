@@ -2,45 +2,6 @@
     "name": "NewInput",
     "maps": [
         {
-            "name": "Werewolf",
-            "id": "71d00cc7-5161-41a6-a44b-e4dde718a49e",
-            "actions": [
-                {
-                    "name": "Movement",
-                    "type": "Value",
-                    "id": "5a0bcf17-d15e-4b69-9d71-210ed5be78e5",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "5be4dbc7-7e44-450a-ada9-45de112a9c7b",
-                    "path": "<DualSenseGamepadHID>/leftStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "26867e77-1567-4a9e-a434-8cf638db9b13",
-                    "path": "<DualSenseGamepadHID>/dpad",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
             "name": "peasent",
             "id": "19f0abb6-115c-4344-a826-5b0f9d476e4b",
             "actions": [
@@ -48,6 +9,15 @@
                     "name": "Moving",
                     "type": "Value",
                     "id": "7616f851-8058-4f4a-9153-8ac83dd451f7",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Dashing",
+                    "type": "Value",
+                    "id": "e56b7c1f-5218-4e11-858c-fb58fc38ec71",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -63,6 +33,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Moving",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "743c5984-7340-4b66-8556-ce9cb1a6c758",
+                    "path": "<SwitchProControllerHID>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dashing",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "906af138-fe7b-4bfa-8be7-e7f4e3b724a1",
+                    "path": "<SwitchProControllerHID>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dashing",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -86,11 +78,39 @@
                 {
                     "name": "",
                     "id": "8ec6ab2d-397b-45b0-8406-779b3c04a0a2",
-                    "path": "<XInputController>/leftStick",
+                    "path": "<DualSenseGamepadHID>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Moving",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Werewolf",
+            "id": "716815c8-3d6c-4c54-a338-19ff9f4a29d1",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "33e5d134-aab0-44aa-a810-667dff45e8e9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b6fd68e6-9055-4a05-9ead-c7015389f1d0",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

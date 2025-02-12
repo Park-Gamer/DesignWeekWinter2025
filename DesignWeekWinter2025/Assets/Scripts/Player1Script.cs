@@ -16,6 +16,7 @@ public class Player1Script : MonoBehaviour
     public InputActionAsset inputActions;
 
     private InputAction moveAction;
+    private InputAction dashAction;
 
     // Start is called before the first frame update
     void Awake()
@@ -23,6 +24,7 @@ public class Player1Script : MonoBehaviour
         // Setup the input actions
         var playerActions = inputActions.FindActionMap("peasent");
         moveAction = playerActions.FindAction("Moving");
+        dashAction = playerActions.FindAction("Dashing");
 
         werewolf.SetActive(false);
         peasant.SetActive(true);
@@ -32,12 +34,14 @@ public class Player1Script : MonoBehaviour
     private void OnEnable()
     {
         moveAction.Enable();
+        dashAction.Enable();
     }
 
     // Disable the input actions
     private void OnDisable()
     {
         moveAction.Disable();
+        dashAction.Disable();
     }
 
     // Update is called once per frame
@@ -76,5 +80,9 @@ public class Player1Script : MonoBehaviour
     public Vector2 GetMoveInput()
     {
         return moveAction.ReadValue<Vector2>();
+    }
+    public Vector2 GetDashInput()
+    {
+        return dashAction.ReadValue<Vector2>();
     }
 }

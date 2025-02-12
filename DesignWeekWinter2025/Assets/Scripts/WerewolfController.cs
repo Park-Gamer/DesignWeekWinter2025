@@ -5,20 +5,20 @@ using UnityEngine.InputSystem;
 
 public class WerewolfController : MonoBehaviour
 {
-    /// <summary>
-    /// Variables for werewolf
-    /// </summary>
+    public float moveSpeed = 0.1f;
     public float dashSpeed = 10f;  // Speed at which the player dashes
     public float dashDuration = 0.5f;  // How long the dash lasts
     public float dashCooldown = 0.1f;
     public LayerMask collisionLayer;  // Layer that represents the walls
 
     private Vector3 dashDirection;  // Direction in which the player will dash
-    private bool canDash = true;  // Can the player dash?
+    private bool canDash = true;  // Can the player dash
+    private bool isDashing = false;
     private Rigidbody rb;  // Rigidbody for the player
     public int damageAmount = 10;  // How much health to subtract from the collided player
 
     private Vector2 move;
+    private Vector2 dash;
 
     private Player1Script playerScript;
 
@@ -34,12 +34,13 @@ public class WerewolfController : MonoBehaviour
     void Update()
     {
         move = playerScript.GetMoveInput();
+        dash = playerScript.GetDashInput();
 
         if (canDash)
         {
             // Round input to the nearest whole number to determine movement direction
-            float roundedY = Mathf.Round(move.y);
-            float roundedX = Mathf.Round(move.x);
+            float roundedY = Mathf.Round(dash.y);
+            float roundedX = Mathf.Round(dash.x);
 
             if (Mathf.Abs(roundedY) >= 0.9f || Mathf.Abs(roundedX) >= 0.9f)
             {
@@ -64,10 +65,26 @@ public class WerewolfController : MonoBehaviour
                 StartCoroutine(Dash());
             }
         }
+        
+        if (!isDashing)
+        {
+            // Calculate the movement direction
+            Vector3 moveDirection = new Vector3(move.x, 0f, move.y).normalized;
+
+            // Move the player
+            MoveWerewolf(moveDirection);
+        }
+    }
+
+    void MoveWerewolf(Vector3 direction)
+    {
+        // Apply the movement to the Rigidbody
+        rb.velocity = direction * moveSpeed;  // Move the player based on the input direction and speed
     }
 
     IEnumerator Dash()
     {
+        isDashing = true;
         canDash = false;  // Prevent dashing until this dash ends
 
         // Dash the player in the desired direction
@@ -92,6 +109,7 @@ public class WerewolfController : MonoBehaviour
         // Wait a bit before allowing another dash
         yield return new WaitForSeconds(dashCooldown);
 
+        isDashing = false;
         canDash = true;  // Allow the player to dash again
     }
 
