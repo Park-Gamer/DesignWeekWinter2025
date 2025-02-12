@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player1Controller : MonoBehaviour
 {
@@ -32,7 +34,7 @@ public class Player1Controller : MonoBehaviour
     {
         playerScript = FindAnyObjectByType<Player1Script>();
         rb = GetComponent<Rigidbody>();  // Get the Rigidbody component attached to the player
-        audioManager = FindAnyObjectByType<AudioManager>();
+        GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     void Update()
