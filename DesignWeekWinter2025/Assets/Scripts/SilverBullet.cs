@@ -5,8 +5,9 @@ using UnityEngine;
 public class SilverBullet : MonoBehaviour
 {
     //Update slowdown speed value as needed
-    public float slowdown = 5f;
-    
+    public float slowdown = 0.05f;
+    public float slowdown_dash = 5f;
+
     //Update tag once werewolf is declared
     void OnTriggerEnter(Collider other)
     {
@@ -18,7 +19,8 @@ public class SilverBullet : MonoBehaviour
 
     void Pickup(Collider player)
     {
-        player.GetComponent<WerewolfController>().dashSpeed -= slowdown;
+        player.GetComponent<WerewolfController>().moveSpeed -= slowdown;
+        player.GetComponent<WerewolfController>().dashSpeed -= slowdown_dash;
         Destroy(gameObject);
     }
 }

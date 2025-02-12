@@ -19,6 +19,15 @@ public class SurgeonPickUp : MonoBehaviour
         {
             Pickup(other);
         }
+
+        else if (other.CompareTag("Peasant3"))
+        {
+            Pickup(other);
+        }
+        else if (other.CompareTag("Peasant4"))
+        {
+            Pickup(other);
+        }
     }
 
     //Does the players have a slot to carry inventory or a cooldown option 
