@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wolfbane : MonoBehaviour
+public class SilverBullet : MonoBehaviour
 {
     //Update slowdown speed value as needed
     public float slowdown = 5f;
