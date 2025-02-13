@@ -21,13 +21,19 @@ public class P2WerewolfController : MonoBehaviour
     private Vector2 dash;
 
     private Player2Script playerScript;
+    private AudioManager audioManager;
+    private ScreenShake screenShake;
 
     // Start is called before the first frame update
     void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         playerScript = FindAnyObjectByType<Player2Script>();
         rb = GetComponent<Rigidbody>();  // Get the Rigidbody component
 
+        screenShake = FindAnyObjectByType<ScreenShake>();
+        audioManager.PlaySFX(audioManager.werewolfStartDialog1);
+        Invoke("PlayHowlfSFX", 5f);
         Debug.Log("P2switched");
     }
 
@@ -85,6 +91,7 @@ public class P2WerewolfController : MonoBehaviour
     IEnumerator Dash()
     {
         isDashing = true;
+        audioManager.PlaySFX(audioManager.werewolfDash);
         canDash = false;  // Prevent dashing until this dash ends
 
         // Dash the player in the desired direction
@@ -96,6 +103,8 @@ public class P2WerewolfController : MonoBehaviour
             if (Physics.Raycast(transform.position, dashDirection, out hit, dashSpeed * Time.deltaTime, collisionLayer))
             {
                 // Stop the dash if we hit something
+                audioManager.PlaySFX(audioManager.werewolfThud);
+                screenShake.TriggerScreenShake();
                 break;
             }
 
@@ -118,23 +127,32 @@ public class P2WerewolfController : MonoBehaviour
         // Check if the player collided with another player
         if (collision.gameObject.CompareTag("Peasent"))
         {
+            audioManager.PlaySFX(audioManager.werewolfChomp);
             Player1Controller p1HealthScript = collision.gameObject.GetComponent<Player1Controller>();
             p1HealthScript.ApplyDamage(damageAmount);
         }
         if (collision.gameObject.CompareTag("Peasent2"))
         {
+            audioManager.PlaySFX(audioManager.werewolfChomp);
             Player2Controller p2HealthScript = collision.gameObject.GetComponent<Player2Controller>();
             p2HealthScript.ApplyDamage(damageAmount);
         }
         if (collision.gameObject.CompareTag("Peasent3"))
         {
+            audioManager.PlaySFX(audioManager.werewolfChomp);
             Player3Controller p3HealthScript = collision.gameObject.GetComponent<Player3Controller>();
             p3HealthScript.ApplyDamage(damageAmount);
         }
         if (collision.gameObject.CompareTag("Peasent4"))
         {
+            audioManager.PlaySFX(audioManager.werewolfChomp);
             Player4Controller p4HealthScript = collision.gameObject.GetComponent<Player4Controller>();
             p4HealthScript.ApplyDamage(damageAmount);
         }
+    }
+
+    void PlayHowlfSFX()
+    {
+        audioManager.PlaySFX(audioManager.werewolfHowl1);
     }
 }

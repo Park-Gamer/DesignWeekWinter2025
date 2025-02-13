@@ -21,6 +21,8 @@ public class Player2Controller : MonoBehaviour
     public GameObject bloodSplatter;
 
     private Player2Script playerScript;
+    private GameManager gameManager;
+    private AudioManager audioManager;
 
     void Awake()
     {
@@ -31,6 +33,8 @@ public class Player2Controller : MonoBehaviour
     {
         playerScript = FindAnyObjectByType<Player2Script>();
         rb = GetComponent<Rigidbody>();  // Get the Rigidbody component attached to the player
+        audioManager = FindAnyObjectByType<AudioManager>();
+        gameManager = FindAnyObjectByType<GameManager>();
     }
 
     void Update()
@@ -66,9 +70,11 @@ public class Player2Controller : MonoBehaviour
 
     public void Die()
     {
+        audioManager.PlaySFX(audioManager.peasent2DeathSound);
         Debug.Log(gameObject.name + " has died.");
         isDead = true;
         anim.SetBool("isDead", true);
+        gameManager.IncreaseDeathCount();
     }
 
     public void ApplyDamage(int damage)
@@ -80,7 +86,7 @@ public class Player2Controller : MonoBehaviour
                 return;
             }
             health -= damage;
-
+            audioManager.PlaySFX(audioManager.peasent2HurtSound);
             if (health <= 0)
             {
                 Die();

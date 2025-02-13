@@ -23,7 +23,6 @@ public class P1WeakenedController : MonoBehaviour
         Vector2 move = playerScript.GetMoveInput();
         // Calculate the movement direction
         Vector3 moveDirection = new Vector3(move.x, 0f, move.y).normalized;
-        Debug.Log(move.y + ", " + move.x);
         // Move the player
         MovePlayer(moveDirection);
     }

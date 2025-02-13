@@ -20,6 +20,8 @@ public class Player4Controller : MonoBehaviour
     public GameObject bloodSplatter;
 
     private Player4Script playerScript;
+    private AudioManager audioManager;
+    private GameManager gameManager;
 
     void Awake()
     {
@@ -30,6 +32,8 @@ public class Player4Controller : MonoBehaviour
     {
         playerScript = FindAnyObjectByType<Player4Script>();
         rb = GetComponent<Rigidbody>();  // Get the Rigidbody component attached to the player
+        audioManager = FindAnyObjectByType<AudioManager>();
+        gameManager = FindAnyObjectByType<GameManager>();
     }
 
     void Update()
@@ -66,9 +70,11 @@ public class Player4Controller : MonoBehaviour
 
     public void Die()
     {
+        audioManager.PlaySFX(audioManager.peasent4DeathSound);
         Debug.Log(gameObject.name + " has died.");
         isDead = true;
         anim.SetBool("isDead", true);
+        gameManager.IncreaseDeathCount();
     }
 
     public void ApplyDamage(int damage)
@@ -80,7 +86,7 @@ public class Player4Controller : MonoBehaviour
                 return;
             }
             health -= damage;
-            //Instantiate(blood, transform.position, Quaternion.identity);
+            audioManager.PlaySFX(audioManager.peasent2HurtSound);
             // If health drops to zero or below, call the death function
             if (health <= 0)
             {
