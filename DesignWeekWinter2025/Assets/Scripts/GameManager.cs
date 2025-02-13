@@ -8,10 +8,11 @@ public class GameManager : MonoBehaviour
 {
     public float gameTime = 0f;  // Timer duration in seconds
     private float timer;
-    public float maxGameTime = 100f;
+    public float maxGameTime = 5f;
     public TextMeshProUGUI timerText;
     public TimerSlider timerSlider;
 
+    public int selectedPlayer;
     private bool werewolfChosen = false;
 
     // Reference to the PlayerScript to trigger transformation
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        selectedPlayer = Random.Range(1, 5);
         // Initialize the timer
         timer = gameTime;
         timerSlider.SetMaxTimer(maxGameTime);
@@ -41,8 +43,6 @@ public class GameManager : MonoBehaviour
         // When the timer reaches 0, trigger the transformation
         if (timer >= 10f && !werewolfChosen)
         {
-            int selectedPlayer = Random.Range(1, 5);  // Random number between 1 and 4
-
             if (selectedPlayer == 1)
             {
                 P1playerScript.ToggleTransformation();
@@ -60,6 +60,26 @@ public class GameManager : MonoBehaviour
                 P4playerScript.ToggleTransformation();
             }
             werewolfChosen = true;
+        }
+
+        if (timer >= maxGameTime)
+        {
+            if (selectedPlayer == 1)
+            {
+                P1playerScript.WeakenedTransformation();
+            }
+            else if (selectedPlayer == 2)
+            {
+                P2playerScript.WeakenedTransformation();
+            }
+            else if (selectedPlayer == 3)
+            {
+                P3playerScript.WeakenedTransformation();
+            }
+            else if (selectedPlayer == 4)
+            {
+                P4playerScript.WeakenedTransformation();
+            }
         }
     }
 }

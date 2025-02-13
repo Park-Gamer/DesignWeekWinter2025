@@ -8,9 +8,11 @@ public class Player2Script : MonoBehaviour
     // References to the Peasant and Werewolf GameObjects
     public GameObject peasant;
     public GameObject werewolf;
+    public GameObject weakenedHuman;
 
     // Flag to check if in Werewolf state
     private bool isWerewolf = false;
+    private bool isWeakened = false;
 
     // Reference to the InputActionAsset
     public InputActionAsset inputActions;
@@ -27,6 +29,7 @@ public class Player2Script : MonoBehaviour
         dashAction = playerActions.FindAction("Dashing");
 
         werewolf.SetActive(false);
+        weakenedHuman.SetActive(false);
         peasant.SetActive(true);
     }
 
@@ -50,10 +53,17 @@ public class Player2Script : MonoBehaviour
         if (!isWerewolf)
         {
             werewolf.transform.position = peasant.transform.position;
+            weakenedHuman.transform.position = peasant.transform.position;
+        }
+        else if (isWeakened)
+        {
+            werewolf.transform.position = weakenedHuman.transform.position;
+            peasant.transform.position = weakenedHuman.transform.position;
         }
         else
         {
             peasant.transform.position = werewolf.transform.position;
+            weakenedHuman.transform.position = werewolf.transform.position;
         }
     }
 
@@ -74,6 +84,13 @@ public class Player2Script : MonoBehaviour
 
         // Toggle the state
         isWerewolf = !isWerewolf;
+    }
+    public void WeakenedTransformation()
+    {
+        werewolf.SetActive(false);
+        weakenedHuman.SetActive(true);
+
+        isWeakened = true;
     }
 
     // Get the movement input vector
