@@ -255,7 +255,7 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""4d592ee9-7955-4426-abbf-3fdff6ac7777"",
-                    ""path"": ""<AndroidGamepad>/leftStick"",
+                    ""path"": ""<HID::Bensussen Deutsch & Associates,Inc.(BDA) Core (Plus) Wired Controller>/stick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -266,7 +266,7 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9dfed573-6754-46dc-bf42-c6d69eafabe6"",
-                    ""path"": ""<AndroidGamepad>/rightStick"",
+                    ""path"": ""<HID::Bensussen Deutsch & Associates,Inc.(BDA) Core (Plus) Wired Controller>/hat"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
