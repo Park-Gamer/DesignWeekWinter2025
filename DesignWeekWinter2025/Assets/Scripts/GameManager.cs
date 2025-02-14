@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
     public Player3Script P3playerScript;
     public Player4Script P4playerScript;
 
+    public Player1Controller P1playerController;
+    public Player2Controller P2playerController;
+    public Player3Controller P3playerController;
+    public Player4Controller P4playerController;
+
     void Start()
     {
         selectedPlayer = 4;//Random.Range(1, 5);
@@ -33,10 +38,16 @@ public class GameManager : MonoBehaviour
         timerSlider.SetMaxTimer(maxGameTime);
 
         audioManager = FindAnyObjectByType<AudioManager>();
+
         P1playerScript = FindAnyObjectByType<Player1Script>();
         P2playerScript = FindAnyObjectByType<Player2Script>();
         P3playerScript = FindAnyObjectByType<Player3Script>();
         P4playerScript = FindAnyObjectByType<Player4Script>();
+
+        P1playerController = FindAnyObjectByType<Player1Controller>();
+        P2playerController = FindAnyObjectByType<Player2Controller>();
+        P3playerController = FindAnyObjectByType<Player3Controller>();
+        P4playerController = FindAnyObjectByType<Player4Controller>();
     }
 
     void Update()
@@ -46,23 +57,23 @@ public class GameManager : MonoBehaviour
         timerSlider.SetTime(timer);
 
         // When the timer reaches 0, trigger the transformation
-        if (timer >= 10f && !werewolfChosen)
+        if (timer >= 2f && !werewolfChosen)
         {
             if (selectedPlayer == 1)
             {
-                P1playerScript.ToggleTransformation();
+                P1playerController.isTurning = true;
             }
             else if (selectedPlayer == 2) 
             {
-                P2playerScript.ToggleTransformation();
+                P2playerController.isTurning = true;
             }
             else if (selectedPlayer == 3) 
             {
-                P3playerScript.ToggleTransformation();
+                P3playerController.isTurning = true;
             }
             else if (selectedPlayer == 4)
             {
-                P4playerScript.ToggleTransformation();
+                P4playerController.isTurning = true;
             }
             werewolfChosen = true;
         }

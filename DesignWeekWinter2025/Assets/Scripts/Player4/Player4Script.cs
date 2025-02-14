@@ -47,13 +47,13 @@ public class Player4Script : MonoBehaviour
         dashAction.Disable();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!isWerewolf)
         {
+            Vector3 positionOffset = new Vector3(peasant.transform.position.x, peasant.transform.position.y + 0.15f, peasant.transform.position.z);
             werewolf.transform.position = peasant.transform.position;
-            weakenedHuman.transform.position = peasant.transform.position;
+            weakenedHuman.transform.position = positionOffset;
         }
         else if (isWeakened)
         {
@@ -62,8 +62,9 @@ public class Player4Script : MonoBehaviour
         }
         else
         {
+            Vector3 positionOffset = new Vector3(werewolf.transform.position.x, werewolf.transform.position.y, werewolf.transform.position.z);
             peasant.transform.position = werewolf.transform.position;
-            weakenedHuman.transform.position = werewolf.transform.position;
+            weakenedHuman.transform.position = positionOffset;
         }
     }
 
@@ -85,7 +86,6 @@ public class Player4Script : MonoBehaviour
         // Toggle the state
         isWerewolf = !isWerewolf;
     }
-
     public void WeakenedTransformation()
     {
         werewolf.SetActive(false);

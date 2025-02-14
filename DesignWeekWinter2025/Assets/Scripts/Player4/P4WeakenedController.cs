@@ -10,6 +10,7 @@ public class P4WeakenedController : MonoBehaviour
 
     private Player4Script playerScript;
     AudioManager audioManager;
+    public Animator anim;
 
     void Start()
     {
@@ -23,9 +24,24 @@ public class P4WeakenedController : MonoBehaviour
         Vector2 move = playerScript.GetMoveInput();
         // Calculate the movement direction
         Vector3 moveDirection = new Vector3(move.x, 0f, move.y).normalized;
-
         // Move the player
         MovePlayer(moveDirection);
+
+        // Only rotate if there is some direction
+        if (move.magnitude > 0)
+        {
+            anim.SetBool("IsMoving", true);
+            // Calculate the angle in radians from the Vector2 (the direction vector)
+            float angle = Mathf.Atan2(move.x, move.y) * Mathf.Rad2Deg;
+
+            // Smoothly rotate the player to the desired angle
+            Quaternion targetRotation = Quaternion.Euler(0, angle, 0);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
+        }
+        else
+        {
+            anim.SetBool("IsMoving", false);
+        }
     }
 
     void MovePlayer(Vector3 direction)

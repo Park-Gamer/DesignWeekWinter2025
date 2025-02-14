@@ -10,23 +10,19 @@ public class Player4Controller : MonoBehaviour
     private bool isInvincible = false; // If the player is invincible
     private float invincibilityTimer = 0f; // Timer for tracking invincibility duration
 
-    private Renderer playerRenderer; // For visual effect 
-    public Color originalColor = new Color(1f, 0.5f, 0f);
     private Rigidbody rb;  // Rigidbody of the player
 
     public bool isDead = false;
     public Animator anim;
-    //public GameObject blood;
     public GameObject bloodSplatter;
 
     private Player4Script playerScript;
     private AudioManager audioManager;
     private GameManager gameManager;
 
-    void Awake()
-    {
-        playerRenderer = GetComponent<Renderer>();
-    }
+    public bool isTurning = false;
+    private bool hasTurned = false;
+    public float transformDuration = 3f;
 
     void Start()
     {
@@ -40,11 +36,32 @@ public class Player4Controller : MonoBehaviour
     {
         Vector2 move = playerScript.GetMoveInput();
 
-        if (!isDead)
+        if (isTurning && !hasTurned)
         {
+            hasTurned = true;
+            StartCoroutine(BeginTurning());
+        }
+
+        if (!isDead && !isTurning)
+        {
+            // Only rotate if there is some direction
+            if (move.magnitude > 0)
+            {
+                anim.SetBool("IsMoving", true);
+                // Calculate the angle in radians from the Vector2 (the direction vector)
+                float angle = Mathf.Atan2(move.x, move.y) * Mathf.Rad2Deg;
+
+                // Smoothly rotate the player to the desired angle
+                Quaternion targetRotation = Quaternion.Euler(0, angle, 0);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
+            }
+            else
+            {
+                anim.SetBool("IsMoving", false);
+            }
+
             // Calculate the movement direction
             Vector3 moveDirection = new Vector3(move.x, 0f, move.y).normalized;
-
             // Move the player
             MovePlayer(moveDirection);
 
@@ -56,7 +73,6 @@ public class Player4Controller : MonoBehaviour
                 {
                     // End invincibility after the duration
                     isInvincible = false;
-                    playerRenderer.material.color = originalColor;
                 }
             }
         }
@@ -70,7 +86,7 @@ public class Player4Controller : MonoBehaviour
 
     public void Die()
     {
-        audioManager.PlaySFX(audioManager.peasent4DeathSound);
+        audioManager.PlaySFX(audioManager.peasent3DeathSound);
         Debug.Log(gameObject.name + " has died.");
         isDead = true;
         anim.SetBool("isDead", true);
@@ -86,7 +102,7 @@ public class Player4Controller : MonoBehaviour
                 return;
             }
             health -= damage;
-            audioManager.PlaySFX(audioManager.peasent2HurtSound);
+            audioManager.PlaySFX(audioManager.peasent1HurtSound);
             // If health drops to zero or below, call the death function
             if (health <= 0)
             {
@@ -94,8 +110,6 @@ public class Player4Controller : MonoBehaviour
             }
             isInvincible = true;
             invincibilityTimer = invincibilityDuration;
-
-            playerRenderer.material.color = Color.red;
 
             // Raycast to the ground to find the floor's normal
             RaycastHit hit;
@@ -108,5 +122,22 @@ public class Player4Controller : MonoBehaviour
                 Instantiate(bloodSplatter, spawnPosition, spawnRotation);
             }
         }
+    }
+
+    IEnumerator BeginTurning()
+    {
+        anim.SetBool("IsTurning", true);
+        audioManager.PlaySFX(audioManager.werewolfStartDialog1);
+        rb.velocity = Vector3.zero;
+        // Stop the player from moving on awake
+        float transformTime = 0f;
+        while (transformTime < transformDuration)
+        {
+            transformTime += Time.deltaTime;
+        }
+        // Wait a bit before allowing movement
+        yield return new WaitForSeconds(transformDuration);
+
+        playerScript.ToggleTransformation();
     }
 }
