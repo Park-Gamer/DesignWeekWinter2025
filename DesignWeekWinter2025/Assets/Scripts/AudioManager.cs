@@ -19,6 +19,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip peasent4DeathSound;
     public AudioClip peasentVictory1;
 
+    public AudioClip scream;
+
     public AudioClip werewolfChomp;
     public AudioClip werewolfDash;
     public AudioClip werewolfThud;
@@ -28,6 +30,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip werewolfHowl1;
 
     public AudioClip click;
+    public AudioClip dun;
 
     private void Start()
     {

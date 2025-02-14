@@ -14,4 +14,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/WerewolfWinner.unity
+    guid: 9a918adcd90c5b84fb76876dcff510d5
+  - enabled: 1
+    path: Assets/Scenes/Peasant Winner.unity
+    guid: 18ee639dad715074196c5169a5efce3f
+  - enabled: 1
+    path: Assets/Scenes/PeasantP2Winner.unity
+    guid: 4fede2935e7e6d745acaf418e8880566
+  - enabled: 1
+    path: Assets/Scenes/PeasantP3Winner.unity
+    guid: e8b6e2443b012e749ba364ab78155cf2
+  - enabled: 1
+    path: Assets/Scenes/PeasantP4Winner.unity
+    guid: ed3c9a86c7e0d4147a3ef0fdc92a43b7
   m_configObjects: {}

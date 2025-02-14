@@ -29,6 +29,7 @@ public class ReadyCheck : MonoBehaviour
     private Vector2 P4Moving;
 
     private AudioManager audioManager;
+    public FadeOut fade;
 
     // Start is called before the first frame update
     void Awake()
@@ -104,7 +105,13 @@ public class ReadyCheck : MonoBehaviour
 
         if (P1readyCheck && P2readyCheck && P3readyCheck && P4readyCheck) 
         {
-            SceneManager.LoadScene("SampleScene");
+            fade.StartFade();
+            Invoke("SwitchToGameplay", 4f);
         }
+    }
+
+    void SwitchToGameplay()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }

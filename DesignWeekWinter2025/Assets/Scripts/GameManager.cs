@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class GameManager : MonoBehaviour
     public Player2Controller P2playerController;
     public Player3Controller P3playerController;
     public Player4Controller P4playerController;
+
+    public FadeOut fade;
 
     void Start()
     {
@@ -102,7 +105,8 @@ public class GameManager : MonoBehaviour
 
         if(numPlayerDeath >= 3)
         {
-            Debug.Log("Werewolf wins");
+            fade.StartFade();
+            Invoke("WerewolfVictory", 4f);
         }
     }
 
@@ -113,5 +117,10 @@ public class GameManager : MonoBehaviour
     public void DecreaseDeathCount()
     {
         numPlayerDeath--;
+    }
+
+    void WerewolfVictory()
+    {
+        SceneManager.LoadScene("WerewolfWinner");
     }
 }
