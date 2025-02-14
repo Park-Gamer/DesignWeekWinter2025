@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        selectedPlayer = 4;//Random.Range(1, 5);
+        selectedPlayer = Random.Range(1, 5);
         // Initialize the timer
         timer = gameTime;
         timerSlider.SetMaxTimer(maxGameTime);
