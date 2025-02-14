@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         timerSlider.SetTime(timer);
 
         // When the timer reaches 0, trigger the transformation
-        if (timer >= 2f && !werewolfChosen)
+        if (timer >= 15f && !werewolfChosen)
         {
             if (selectedPlayer == 1)
             {

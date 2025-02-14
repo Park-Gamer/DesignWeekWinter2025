@@ -129,7 +129,7 @@ public class Player2Controller : MonoBehaviour
     IEnumerator BeginTurning()
     {
         anim.SetBool("IsTurning", true);
-        audioManager.PlaySFX(audioManager.werewolfStartDialog1);
+        audioManager.PlaySFX(audioManager.werewolfStartDialog2);
         rb.velocity = Vector3.zero;
         // Stop the player from moving on awake
         float transformTime = 0f;

@@ -23,7 +23,11 @@ public class AudioManager : MonoBehaviour
     public AudioClip werewolfDash;
     public AudioClip werewolfThud;
     public AudioClip werewolfStartDialog1;
+    public AudioClip werewolfStartDialog2;
+    public AudioClip werewolfStartDialog3;
     public AudioClip werewolfHowl1;
+
+    public AudioClip click;
 
     private void Start()
     {
