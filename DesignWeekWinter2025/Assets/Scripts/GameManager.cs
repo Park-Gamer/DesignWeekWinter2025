@@ -8,11 +8,16 @@ public class GameManager : MonoBehaviour
 {
     public float gameTime = 0f;  // Timer duration in seconds
     private float timer;
-    public float maxGameTime = 100f;
+    public float maxGameTime = 5f;
+    public bool timerEnded = false;
+    public int numPlayerDeath = 0;
     public TextMeshProUGUI timerText;
     public TimerSlider timerSlider;
 
+    public int selectedPlayer;
     private bool werewolfChosen = false;
+
+    private AudioManager audioManager;
 
     // Reference to the PlayerScript to trigger transformation
     public Player1Script P1playerScript;
@@ -20,16 +25,29 @@ public class GameManager : MonoBehaviour
     public Player3Script P3playerScript;
     public Player4Script P4playerScript;
 
+    public Player1Controller P1playerController;
+    public Player2Controller P2playerController;
+    public Player3Controller P3playerController;
+    public Player4Controller P4playerController;
+
     void Start()
     {
+        selectedPlayer = 4;//Random.Range(1, 5);
         // Initialize the timer
         timer = gameTime;
         timerSlider.SetMaxTimer(maxGameTime);
+
+        audioManager = FindAnyObjectByType<AudioManager>();
 
         P1playerScript = FindAnyObjectByType<Player1Script>();
         P2playerScript = FindAnyObjectByType<Player2Script>();
         P3playerScript = FindAnyObjectByType<Player3Script>();
         P4playerScript = FindAnyObjectByType<Player4Script>();
+
+        P1playerController = FindAnyObjectByType<Player1Controller>();
+        P2playerController = FindAnyObjectByType<Player2Controller>();
+        P3playerController = FindAnyObjectByType<Player3Controller>();
+        P4playerController = FindAnyObjectByType<Player4Controller>();
     }
 
     void Update()
@@ -41,25 +59,59 @@ public class GameManager : MonoBehaviour
         // When the timer reaches 0, trigger the transformation
         if (timer >= 2f && !werewolfChosen)
         {
-            int selectedPlayer = 3;//Random.Range(1, 5);  // Random number between 1 and 4
-
             if (selectedPlayer == 1)
             {
-                P1playerScript.ToggleTransformation();
+                P1playerController.isTurning = true;
             }
             else if (selectedPlayer == 2) 
             {
-                P2playerScript.ToggleTransformation();
+                P2playerController.isTurning = true;
             }
             else if (selectedPlayer == 3) 
             {
-                P3playerScript.ToggleTransformation();
+                P3playerController.isTurning = true;
             }
             else if (selectedPlayer == 4)
             {
-                P4playerScript.ToggleTransformation();
+                P4playerController.isTurning = true;
             }
             werewolfChosen = true;
         }
+
+        if (timer >= maxGameTime && !timerEnded)
+        {
+            timerEnded = true;
+            audioManager.PlaySFX(audioManager.peasentVictory1);
+            if (selectedPlayer == 1)
+            {
+                P1playerScript.WeakenedTransformation();
+            }
+            else if (selectedPlayer == 2)
+            {
+                P2playerScript.WeakenedTransformation();
+            }
+            else if (selectedPlayer == 3)
+            {
+                P3playerScript.WeakenedTransformation();
+            }
+            else if (selectedPlayer == 4)
+            {
+                P4playerScript.WeakenedTransformation();
+            }
+        }
+
+        if(numPlayerDeath >= 3)
+        {
+            Debug.Log("Werewolf wins");
+        }
+    }
+
+    public void IncreaseDeathCount()
+    {
+        numPlayerDeath++;
+    }
+    public void DecreaseDeathCount()
+    {
+        numPlayerDeath--;
     }
 }

@@ -8,6 +8,10 @@ TagManager:
   - Peasent2
   - Peasent3
   - Peasent4
+  - P1Weaken
+  - P2Weaken
+  - P3Weaken
+  - P4Weaken
   layers:
   - Default
   - TransparentFX
