@@ -5,7 +5,10 @@ using UnityEngine;
 public class FadeOut : MonoBehaviour
 {
     public GameObject fadeOut;
+    public GameObject button;
     private AudioManager audioManager;
+
+    private bool fadeStart = false;
 
     private void Start()
     {
@@ -15,7 +18,17 @@ public class FadeOut : MonoBehaviour
 
     public void StartFade()
     {
-        fadeOut.SetActive(true);
-        audioManager.PlaySFX(audioManager.dun);
+        if (!fadeStart)
+        {
+            fadeStart = true;
+            fadeOut.SetActive(true);
+            audioManager.PlaySFX(audioManager.dun);
+        }
     }
+
+    public void DisableButton()
+    {
+        button.SetActive(false);
+    }
+
 }

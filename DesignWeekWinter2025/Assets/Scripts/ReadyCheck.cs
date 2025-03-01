@@ -10,6 +10,7 @@ public class ReadyCheck : MonoBehaviour
     private bool P2readyCheck = false;
     private bool P3readyCheck = false;
     private bool P4readyCheck = false;
+    private bool gameStart = false;
 
     public GameObject P1boarder;
     public GameObject P2boarder;
@@ -103,8 +104,9 @@ public class ReadyCheck : MonoBehaviour
             P4boarder.SetActive(true);
         }
 
-        if (P1readyCheck && P2readyCheck && P3readyCheck && P4readyCheck) 
+        if (P1readyCheck && P2readyCheck && P3readyCheck && P4readyCheck && !gameStart) 
         {
+            gameStart = true;
             fade.StartFade();
             Invoke("SwitchToGameplay", 4f);
         }
