@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class P2WeakenedController : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class P2WeakenedController : MonoBehaviour
     private Player2Script playerScript;
     AudioManager audioManager;
     public Animator anim;
+
+    public FadeOut fade;
 
     void Start()
     {
@@ -55,19 +58,44 @@ public class P2WeakenedController : MonoBehaviour
         // Check if the player collided with another player
         if (collision.gameObject.CompareTag("Peasent"))
         {
-            Debug.Log("P1PeasentWin");
+            audioManager.PlaySFX(audioManager.scream);
+            fade.StartFade();
+            Invoke("P1Victory", 4f);
         }
         if (collision.gameObject.CompareTag("Peasent2"))
         {
-            Debug.Log("P2PeasentWin");
+            audioManager.PlaySFX(audioManager.scream);
+            fade.StartFade();
+            Invoke("P2Victory", 4f);
         }
         if (collision.gameObject.CompareTag("Peasent3"))
         {
-            Debug.Log("P3PeasentWin");
+            audioManager.PlaySFX(audioManager.scream);
+            fade.StartFade();
+            Invoke("P3Victory", 4f);
         }
         if (collision.gameObject.CompareTag("Peasent4"))
         {
-            Debug.Log("P4PeasentWin");
+            audioManager.PlaySFX(audioManager.scream);
+            fade.StartFade();
+            Invoke("P4Victory", 4f);
         }
+    }
+
+    void P1Victory()
+    {
+        SceneManager.LoadScene("Peasant Winner");
+    }
+    void P2Victory()
+    {
+        SceneManager.LoadScene("PeasantP2Winner");
+    }
+    void P3Victory()
+    {
+        SceneManager.LoadScene("PeasantP3Winner");
+    }
+    void P4Victory()
+    {
+        SceneManager.LoadScene("PeasantP4Winner");
     }
 }

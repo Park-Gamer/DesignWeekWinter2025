@@ -86,7 +86,7 @@ public class Player4Controller : MonoBehaviour
 
     public void Die()
     {
-        audioManager.PlaySFX(audioManager.peasent3DeathSound);
+        audioManager.PlaySFX(audioManager.peasent4DeathSound);
         Debug.Log(gameObject.name + " has died.");
         isDead = true;
         anim.SetBool("isDead", true);
@@ -102,7 +102,7 @@ public class Player4Controller : MonoBehaviour
                 return;
             }
             health -= damage;
-            audioManager.PlaySFX(audioManager.peasent1HurtSound);
+            audioManager.PlaySFX(audioManager.peasent2HurtSound);
             // If health drops to zero or below, call the death function
             if (health <= 0)
             {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,9 +31,11 @@ public class GameManager : MonoBehaviour
     public Player3Controller P3playerController;
     public Player4Controller P4playerController;
 
+    public FadeOut fade;
+
     void Start()
     {
-        selectedPlayer = 4;//Random.Range(1, 5);
+        selectedPlayer = Random.Range(1, 5);
         // Initialize the timer
         timer = gameTime;
         timerSlider.SetMaxTimer(maxGameTime);
@@ -57,7 +60,7 @@ public class GameManager : MonoBehaviour
         timerSlider.SetTime(timer);
 
         // When the timer reaches 0, trigger the transformation
-        if (timer >= 2f && !werewolfChosen)
+        if (timer >= 15f && !werewolfChosen)
         {
             if (selectedPlayer == 1)
             {
@@ -102,7 +105,8 @@ public class GameManager : MonoBehaviour
 
         if(numPlayerDeath >= 3)
         {
-            Debug.Log("Werewolf wins");
+            fade.StartFade();
+            Invoke("WerewolfVictory", 4f);
         }
     }
 
@@ -113,5 +117,10 @@ public class GameManager : MonoBehaviour
     public void DecreaseDeathCount()
     {
         numPlayerDeath--;
+    }
+
+    void WerewolfVictory()
+    {
+        SceneManager.LoadScene("WerewolfWinner");
     }
 }

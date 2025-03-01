@@ -5,12 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-public void PlayGame ()
+    public void PlayGame ()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        Invoke("LoadReadyCheck", 4f);
     }
 
-public void QuitGame ()
+    void LoadReadyCheck()
+    {
+        SceneManager.LoadScene("ReadyCheck");
+    }
+
+    public void QuitGame ()
     {
         Application.Quit();
     }

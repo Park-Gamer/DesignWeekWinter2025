@@ -5,9 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class PlayAgainMenu : MonoBehaviour
 {
-    public void PlayGameAgain()
+    private AudioManager audioManager;
+
+    private void Start()
     {
-        SceneManager.LoadScene(1);
+        audioManager = FindAnyObjectByType<AudioManager>();
+        audioManager.PlaySFX(audioManager.werewolfStartDialog1);
+    }
+    public void ReplayGame()
+    {
+        audioManager.PlaySFX(audioManager.click);
+        Invoke("ReloadReadyCheck", 4f);
+    }
+
+    void ReloadReadyCheck()
+    {
+        SceneManager.LoadScene("ReadyCheck");
     }
 
     public void QuitGame()
