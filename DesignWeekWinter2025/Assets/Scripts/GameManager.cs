@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     public int selectedPlayer;
     private bool werewolfChosen = false;
+    private bool werewolfWon = false;
 
     private AudioManager audioManager;
 
@@ -103,8 +104,9 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if(numPlayerDeath >= 3)
+        if(numPlayerDeath >= 3 && !werewolfWon)
         {
+            werewolfWon = true;
             fade.StartFade();
             Invoke("WerewolfVictory", 4f);
         }

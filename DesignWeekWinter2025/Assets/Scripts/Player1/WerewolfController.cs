@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class WerewolfController : MonoBehaviour
 {
     public float moveSpeed = 0.1f;
-    public float dashSpeed = 10f;  // Speed at which the player dashes
+    public float dashSpeed = 20f;  // Speed at which the player dashes
     public float dashDuration = 0.5f;  // How long the dash lasts
     public float dashCooldown = 0.1f;
     public LayerMask collisionLayer;  // Layer that represents the walls
