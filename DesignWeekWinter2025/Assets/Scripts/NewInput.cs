@@ -109,7 +109,7 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8ec6ab2d-397b-45b0-8406-779b3c04a0a2"",
-                    ""path"": ""<DualSenseGamepadHID>/leftStick"",
+                    ""path"": ""<DualShockGamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -120,7 +120,7 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""2156b62d-2b87-496d-9ccc-10cd74a4f119"",
-                    ""path"": ""<DualSenseGamepadHID>/rightStick"",
+                    ""path"": ""<DualShockGamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -131,7 +131,7 @@ public partial class @NewInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""fc9c8918-f635-431c-8578-d42d6d019c62"",
-                    ""path"": ""<DualSenseGamepadHID>/dpad"",
+                    ""path"": ""<DualShockGamepad>/dpad"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

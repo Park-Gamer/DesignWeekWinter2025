@@ -110,6 +110,11 @@ public class ReadyCheck : MonoBehaviour
             fade.StartFade();
             Invoke("SwitchToGameplay", 4f);
         }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            Invoke("SwitchToGameplay", 4f);
+        }
     }
 
     void SwitchToGameplay()
